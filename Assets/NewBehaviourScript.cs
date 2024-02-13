@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    [SerializeField] private GameObject m_sphere;
     [SerializeField] private float m_speed;
     [SerializeField] private float m_sprintSpeed;
     // Start is called before the first frame update
@@ -13,8 +14,9 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        
         float speed;
         if (Input.GetKey(KeyCode.LeftShift))
             speed = m_sprintSpeed;
@@ -24,18 +26,36 @@ public class NewBehaviourScript : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
-            transform.position += Vector3.forward* speed;
+            transform.position += Vector3.forward * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.DownArrow))
-            transform.position += Vector3.back * speed;
+            transform.position += Vector3.back * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.LeftArrow))
-            transform.position += Vector3.left * speed;
+            transform.position += Vector3.left * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.RightArrow))
-            transform.position += Vector3.right * speed;
+            transform.position += Vector3.right * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.Space))
-            transform.position += Vector3.up * speed;
+            transform.position += Vector3.up * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.RightShift))
-            transform.position += Vector3.down * speed;
+            transform.position += Vector3.down * Time.deltaTime * speed;
 
+
+
+        if (Input.GetKeyDown(KeyCode.H)) 
+        {
+            InvokeRepeating("ShootMethod", 0.0f, 1f); 
+        }
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            CancelInvoke();
+        }
+
+    }
+
+
+    void ShootMethod() 
+    {
+        var g = Instantiate(m_sphere);
+        g.transform.position = transform.position;
     }
 
 }

@@ -7,25 +7,20 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private GameObject m_sphere;
     [SerializeField] private float m_speed;
     [SerializeField] private float m_sprintSpeed;
+    private Rigidbody m_rigidbody;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        m_rigidbody = GetComponent<Rigidbody>();    
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        float speed;
-        if (Input.GetKey(KeyCode.LeftShift))
-            speed = m_sprintSpeed;
-        else
-        {
-            speed = m_speed;
-        }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        
+
+        /*if (Input.GetKey(KeyCode.UpArrow))
             transform.position += Vector3.forward * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.DownArrow))
             transform.position += Vector3.back * Time.deltaTime * speed;
@@ -36,13 +31,12 @@ public class NewBehaviourScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
             transform.position += Vector3.up * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.RightShift))
-            transform.position += Vector3.down * Time.deltaTime * speed;
+            transform.position += Vector3.down * Time.deltaTime * speed;*/
+       
 
-
-
-        if (Input.GetKeyDown(KeyCode.H)) 
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            InvokeRepeating("ShootMethod", 0.0f, 1f); 
+            InvokeRepeating("ShootMethod", 0.0f, 1f);
         }
         if (Input.GetKeyUp(KeyCode.H))
         {
@@ -50,12 +44,33 @@ public class NewBehaviourScript : MonoBehaviour
         }
 
     }
-
+    private void FixedUpdate()
+    {
+        float speed;
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = m_sprintSpeed;
+        else
+        {
+            speed = m_speed;
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+            m_rigidbody.velocity = Vector3.forward * speed;
+        if (Input.GetKey(KeyCode.DownArrow))
+            m_rigidbody.velocity = Vector3.back * speed;
+        if (Input.GetKey(KeyCode.LeftArrow))
+            m_rigidbody.velocity = Vector3.left * speed;
+        if (Input.GetKey(KeyCode.RightArrow))
+            m_rigidbody.velocity = Vector3.right * speed;
+        if (Input.GetKey(KeyCode.Space))
+            m_rigidbody.velocity = Vector3.up * speed;
+        if (Input.GetKey(KeyCode.RightShift))
+            m_rigidbody.velocity = Vector3.down * speed;
+    }
 
     void ShootMethod() 
     {
         var g = Instantiate(m_sphere);
         g.transform.position = transform.position;
-    }
+    }   
 
 }

@@ -2,36 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShpereMove : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float m_speed;
     [SerializeField] private float m_lifetime;
     private Rigidbody m_rigidbody;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-            Destroy(gameObject, m_lifetime);
+        Destroy(gameObject, m_lifetime);
         m_rigidbody = GetComponent<Rigidbody>();
+        m_rigidbody.velocity = Vector3.back * m_speed;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        m_rigidbody.velocity = Vector3.forward * m_speed;
         
     }
-
-
     void OnCollisionEnter(Collision collision)
     {
-      /*  collision.contacts[0].otherCollider.tag */
-
-        if (collision.gameObject.CompareTag("Enemy")) 
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Debug.Log("Player Damged");
         }
-        
     }
 }
 

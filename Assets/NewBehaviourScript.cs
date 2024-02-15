@@ -46,6 +46,8 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        bool move = false;
+
         float speed;
         if (Input.GetKey(KeyCode.LeftShift))
             speed = m_sprintSpeed;
@@ -53,18 +55,46 @@ public class NewBehaviourScript : MonoBehaviour
         {
             speed = m_speed;
         }
+
         if (Input.GetKey(KeyCode.UpArrow))
+        {
             m_rigidbody.velocity = Vector3.forward * speed;
+            move = true;
+        }
+
         if (Input.GetKey(KeyCode.DownArrow))
+        {
             m_rigidbody.velocity = Vector3.back * speed;
+            move = true;
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow))
+        {
             m_rigidbody.velocity = Vector3.left * speed;
+            move = true;
+        }
+
         if (Input.GetKey(KeyCode.RightArrow))
+        {
             m_rigidbody.velocity = Vector3.right * speed;
+            move = true;
+        }
+
         if (Input.GetKey(KeyCode.Space))
+        {
             m_rigidbody.velocity = Vector3.up * speed;
+            move = true;
+        }
+
         if (Input.GetKey(KeyCode.RightShift))
+        {
             m_rigidbody.velocity = Vector3.down * speed;
+            move = true;
+        }
+        if (!move) 
+        {
+            m_rigidbody.velocity = Vector3.zero;
+        }
     }
 
     void ShootMethod() 

@@ -18,7 +18,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
 
-        
+
 
         /*if (Input.GetKey(KeyCode.UpArrow))
             transform.position += Vector3.forward * Time.deltaTime * speed;
@@ -32,17 +32,18 @@ public class NewBehaviourScript : MonoBehaviour
             transform.position += Vector3.up * Time.deltaTime * speed;
         if (Input.GetKey(KeyCode.RightShift))
             transform.position += Vector3.down * Time.deltaTime * speed;*/
-       
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Time.timeScale > 0)
         {
-            InvokeRepeating("ShootMethod", 0.0f, 1f);
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                InvokeRepeating("ShootMethod", 0.0f, 1f);
+            }
+            if (Input.GetKeyUp(KeyCode.H))
+            {
+                CancelInvoke();
+            }
         }
-        if (Input.GetKeyUp(KeyCode.H))
-        {
-            CancelInvoke();
-        }
-
     }
     private void FixedUpdate()
     {

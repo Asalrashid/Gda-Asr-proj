@@ -838,7 +838,7 @@ Transform:
   m_GameObject: {fileID: 148084869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 744.1, y: 17.2, z: 535.7}
+  m_LocalPosition: {x: 764.3, y: 30.9, z: 532}
   m_LocalScale: {x: 13.02183, y: 13.02183, z: 13.02183}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96360,7 +96360,7 @@ Transform:
   m_GameObject: {fileID: 1449266684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 784.7, y: 17.2, z: 531.4}
+  m_LocalPosition: {x: 765, y: 17.2, z: 531.4}
   m_LocalScale: {x: 13.02183, y: 13.02183, z: 13.02183}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99143,7 +99143,6 @@ GameObject:
   - component: {fileID: 2121085691}
   - component: {fileID: 2121085695}
   - component: {fileID: 2121085696}
-  - component: {fileID: 2121085697}
   m_Layer: 0
   m_Name: Shooting Target
   m_TagString: Enemy
@@ -99233,7 +99232,7 @@ Transform:
   m_GameObject: {fileID: 2121085689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 764.2, y: 16.2, z: 536.9}
+  m_LocalPosition: {x: 765, y: 46.5, z: 531.4}
   m_LocalScale: {x: 13.02183, y: 13.02183, z: 13.02183}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99262,9 +99261,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &2121085696
 MonoBehaviour:
@@ -99280,19 +99279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_delay: {fileID: 11400000, guid: 87bf822a9370e984b92a5220d7fc7b78, type: 2}
   m_sphere: {fileID: 9092809100408318447, guid: 02ca6d63d061dea4fbf8da01db256799, type: 3}
---- !u!114 &2121085697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121085689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf000b593ee1a9046922e0490d42ed4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 10
 --- !u!43 &2143909702
 Mesh:
   m_ObjectHideFlags: 0

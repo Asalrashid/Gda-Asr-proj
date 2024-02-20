@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [SerializeField] private float m_speed;
+    [SerializeField] private SpeedandDelay m_speed;
+    //[SerializeField] private float m_speed;
     [SerializeField] private float m_lifetime;
     private Rigidbody m_rigidbody;
     // Start is called before the first frame update
@@ -12,7 +13,7 @@ public class EnemyBullet : MonoBehaviour
     {
         Destroy(gameObject, m_lifetime);
         m_rigidbody = GetComponent<Rigidbody>();
-        m_rigidbody.velocity = Vector3.back * m_speed;
+        m_rigidbody.velocity = Vector3.back * m_speed.Speed;
     }
 
     // Update is called once per frame

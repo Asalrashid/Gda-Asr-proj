@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+
 
 public class ShpereMove : MonoBehaviour
 {
     [SerializeField] private float m_speed;
     [SerializeField] private float m_lifetime;
     private Rigidbody m_rigidbody;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,8 +33,8 @@ public class ShpereMove : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            KillScore.Instance.ADD();
         }
-        
     }
 }
 

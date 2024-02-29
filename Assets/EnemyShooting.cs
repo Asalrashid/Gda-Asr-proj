@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
@@ -7,9 +7,15 @@ public class EnemyShooting : MonoBehaviour
 {
     [SerializeField] private SpeedandDelay m_delay;
     [SerializeField] private GameObject m_sphere;
-
+    public bool ShootOnStart = true;
 
     private void Start()
+    {
+        if (ShootOnStart)
+            StartShooting();
+        StartCoroutine(IShoot());
+    }
+    public void StartShooting()
     {
         StartCoroutine(IShoot());
     }
@@ -27,8 +33,8 @@ public class EnemyShooting : MonoBehaviour
     }
     void ShootMethod()
     {
-        var g = Instantiate(m_sphere);
-        g.transform.position = transform.position;
+        var g = Instantiate(m_sphere, transform.position + Vector3.up, Quaternion.identity);
+        g.GetComponent<EnemyBullet>().Init(m_delay.Speed, true, m_delay.Autoaim);
     }
     // Start is called before the first frame update
     /*void Start()

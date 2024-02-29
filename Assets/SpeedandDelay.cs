@@ -6,4 +6,5 @@ public class SpeedandDelay : ScriptableObject
 {
     public float Speed;
     public float Delay;
+    public bool Autoaim;
 }

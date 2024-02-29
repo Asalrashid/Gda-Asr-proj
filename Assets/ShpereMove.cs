@@ -9,18 +9,19 @@ public class ShpereMove : MonoBehaviour
     [SerializeField] private float m_speed;
     [SerializeField] private float m_lifetime;
     private Rigidbody m_rigidbody;
-
+    Vector3 playerTransform;
     // Start is called before the first frame update
     void Awake()
     {
-            Destroy(gameObject, m_lifetime);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform.forward;
+        Destroy(gameObject, m_lifetime);
         m_rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        m_rigidbody.velocity = Vector3.forward * m_speed;
+        m_rigidbody.velocity = playerTransform * m_speed;
         
     }
 
@@ -35,6 +36,12 @@ public class ShpereMove : MonoBehaviour
             Destroy(gameObject);
             KillScore.Instance.ADD();
         }
+    }
+
+    public void Init(Vector3 diricetion) 
+    {
+    
+        
     }
 }
 

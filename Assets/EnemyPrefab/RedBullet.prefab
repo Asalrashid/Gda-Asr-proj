@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_speed
       value: 
       objectReference: {fileID: 11400000, guid: 87bf822a9370e984b92a5220d7fc7b78, type: 2}
+    - target: {fileID: -1078242218763458167, guid: 02ca6d63d061dea4fbf8da01db256799, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1078242218763458167, guid: 02ca6d63d061dea4fbf8da01db256799, type: 3}
+      propertyPath: m_lifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1078242218763458167, guid: 02ca6d63d061dea4fbf8da01db256799, type: 3}
+      propertyPath: m_followPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1078242218763458167, guid: 02ca6d63d061dea4fbf8da01db256799, type: 3}
+      propertyPath: m_speedandDelay
+      value: 
+      objectReference: {fileID: 11400000, guid: 87bf822a9370e984b92a5220d7fc7b78, type: 2}
     - target: {fileID: 806643552046768117, guid: 02ca6d63d061dea4fbf8da01db256799, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
